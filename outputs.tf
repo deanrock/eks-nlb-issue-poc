@@ -32,3 +32,7 @@ output "private_key" {
   value     = tls_private_key.this.private_key_pem
   sensitive = true
 }
+
+output "nlb_hostname" {
+  value = data.kubernetes_service.traefik.load_balancer_ingress.0.hostname
+}
