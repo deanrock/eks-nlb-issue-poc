@@ -7,5 +7,5 @@ module "key_pair" {
   source = "terraform-aws-modules/key-pair/aws"
 
   key_name   = local.cluster_name
-  public_key = tls_private_key.this.public_key_pem
+  public_key = tls_private_key.this.public_key_openssh
 }
