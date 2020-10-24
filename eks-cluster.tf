@@ -10,6 +10,8 @@ module "eks" {
     GithubOrg   = "terraform-aws-modules"
   }
 
+  write_kubeconfig = false
+
   vpc_id = module.vpc.vpc_id
 
   worker_groups = [
