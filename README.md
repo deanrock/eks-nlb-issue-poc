@@ -11,3 +11,18 @@ $ terraform apply ./plan
 ```shell
 $ aws eks --region $(terraform output region) update-kubeconfig --name $(terraform output cluster_name)
 ```
+
+## `curl` test
+```shell
+# start ubuntu pod and attach
+kubectl run -i --tty ubuntu --image=ubuntu -- bash
+
+# run inside
+apt update && apt install -y curl
+i=1; while true; do i=$((i+1)); echo $i; time curl "http://<nlb-hostname>/" 1> /dev/null 2>&1; done;
+```
+
+### simple PHP client
+```shell
+kubectl run -i --tty client --env="URL=http://<nlb-hostname>/" --image=quay.io/deanrock/simple-http-client@sha256:3f1ff8c2c0076624d5cedf949c08106272e7c39250abbfce3786b8a895a27795 bash
+```
