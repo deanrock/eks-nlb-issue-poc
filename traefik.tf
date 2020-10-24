@@ -32,6 +32,16 @@ resource "helm_release" "traefik" {
             protocol    = "TCP"
           }
         }
+
+        service = {
+          enabled = "true"
+          type    = "LoadBalancer"
+          annotations = {
+            "service.beta.kubernetes.io/aws-load-balancer-backend-protocol" = "tcp",
+            "service.beta.kubernetes.io/aws-load-balancer-type"             = "nlb",
+            "service.beta.kubernetes.io/aws-load-balancer-proxy-protocol"   = "*",
+          }
+        }
       }
     )
   ]
