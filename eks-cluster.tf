@@ -1,7 +1,7 @@
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   cluster_name    = local.cluster_name
-  cluster_version = "1.17"
+  cluster_version = "1.15"
   subnets         = module.vpc.public_subnets
 
   tags = {
@@ -17,9 +17,10 @@ module "eks" {
       name                          = "worker-group-1"
       instance_type                 = "t2.small"
       additional_userdata           = "echo foo bar"
-      asg_desired_capacity          = 2
+      asg_desired_capacity          = 12
       additional_security_group_ids = [aws_security_group.worker_group_mgmt_one.id]
       key_name                      = local.cluster_name
+      asg_max_size                  = 20
     },
   ]
 }
