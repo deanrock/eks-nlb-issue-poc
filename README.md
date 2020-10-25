@@ -29,5 +29,5 @@ kubectl run -i --rm --tty client --env="URL=http://$(terraform output nlb_hostna
 
 ### install `simple PHP client` via DaemonSet
 ```shell
-helm install client charts/client --set url="http://$(terraform output nlb_hostname)/"
+helm upgrade --install client charts/client --set url="http://$(terraform output nlb_hostname)/"
 ```
