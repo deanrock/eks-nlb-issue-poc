@@ -31,3 +31,8 @@ kubectl run -i --rm --tty client --env="URL=http://$(terraform output nlb_hostna
 ```shell
 helm upgrade --install client charts/client --set url="http://$(terraform output nlb_hostname)/"
 ```
+
+### install `tcpdump` via DaemonSet
+```shell
+helm upgrade --install client charts/tcpdump
+```
