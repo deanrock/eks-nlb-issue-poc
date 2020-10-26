@@ -39,5 +39,5 @@ helm upgrade --install client charts/client --set url="http://$(terraform output
 
 ### install `tcpdump` via DaemonSet
 ```shell
-helm upgrade --install client charts/tcpdump
+helm upgrade --install tcpdump charts/tcpdump
 ```
