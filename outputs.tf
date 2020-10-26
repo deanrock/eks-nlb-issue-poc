@@ -36,3 +36,7 @@ output "private_key" {
 output "nlb_hostname" {
   value = data.kubernetes_service.traefik.load_balancer_ingress.0.hostname
 }
+
+output "elb_hostname" {
+  value = data.kubernetes_service.traefik-elb.load_balancer_ingress.0.hostname
+}

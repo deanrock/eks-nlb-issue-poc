@@ -32,6 +32,11 @@ kubectl run -i --rm --tty client --env="URL=http://$(terraform output nlb_hostna
 helm upgrade --install client charts/client --set url="http://$(terraform output nlb_hostname)/"
 ```
 
+### install `simple PHP client` via Deployment and target ELB
+```shell
+helm upgrade --install client charts/client --set url="http://$(terraform output elb_hostname)/"
+```
+
 ### install `tcpdump` via DaemonSet
 ```shell
 helm upgrade --install client charts/tcpdump
