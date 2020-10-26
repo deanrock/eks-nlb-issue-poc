@@ -8,7 +8,7 @@ image:
   repository: quay.io/deanrock/simple-http-client@sha256
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "bd33d43482ed589faa30c04bea2a6e32930a0c68f2c83aabf79d2ad2472c2ee1"
+  tag: "00f3b9fa34a4fe223266ad966af98ee3e1f29b162126c6e71e05a9ab961bb18c"
 
 imagePullSecrets: []
 nameOverride: ""

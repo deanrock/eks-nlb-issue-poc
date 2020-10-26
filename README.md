@@ -27,7 +27,7 @@ URL="http://$(terraform output nlb_hostname)/" i=1; while true; do i=$((i+1)); e
 kubectl run -i --rm --tty client --env="URL=http://$(terraform output nlb_hostname)/" --image=quay.io/deanrock/simple-http-client@sha256:3f1ff8c2c0076624d5cedf949c08106272e7c39250abbfce3786b8a895a27795
 ```
 
-### install `simple PHP client` via DaemonSet
+### install `simple PHP client` via Deployment
 ```shell
 helm upgrade --install client charts/client --set url="http://$(terraform output nlb_hostname)/"
 ```
